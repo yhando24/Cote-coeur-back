@@ -31,10 +31,34 @@ public class Operation {
 	
 	private LocalDate date;
 	
-	private float montant;
+	private Double montant;
 	
 	private Sens sens;
 	
-	private String UrlImage;
+	private String urlimage;
+
+	public Operation(Long id, String libelle, LocalDate date, Double montant, Sens sens, String urlimage) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.date = date;
+		this.montant = montant;
+		this.sens = sens;
+		this.urlimage = urlimage;
+	}
+	
+	public Operation(String libelle, LocalDate date, Double montant, Sens sens, String urlimage) {
+	
+		super();
+		this.libelle = libelle;
+		this.date = date;
+		this.montant = montant;
+		this.sens = sens;
+		this.urlimage = urlimage;
+	}
+
+	public Operation() {
+		super();
+	}
 
 }

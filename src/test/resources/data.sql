@@ -1,5 +1,3 @@
-CREATE TABLE `Operation` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-)
+INSERT INTO operation(
+	urlimage, date, libelle, montant)
+	VALUES ('lol', '2019-05-05', 'Test', 20.5);
