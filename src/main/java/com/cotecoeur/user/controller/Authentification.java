@@ -33,12 +33,13 @@ public class Authentification {
 	@Autowired
 	private UserService userServ;
 	
-	
+	/*
 	 @GetMapping(params = "email")
 	 public User update(@RequestParam String email) {
 		 System.out.println("dans le get");
 	   return this.userServ.findByEmail(email);
 	 }
+	 */
 /*
 	@PostMapping
 	public @ResponseBody
