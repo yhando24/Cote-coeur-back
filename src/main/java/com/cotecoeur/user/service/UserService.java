@@ -1,5 +1,6 @@
 package com.cotecoeur.user.service;
 
+
 import com.cotecoeur.user.model.User;
 import com.cotecoeur.user.model.UserDTO;
 import com.cotecoeur.user.repository.UserRepository;
@@ -10,19 +11,16 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    UserRepository ur;
+    private UserRepository ur;
     
     @Autowired
-    UserRepository or;
-    
-    @Autowired
-	MapperUserService mpu;
+	private MapperUserService mus;
 
-    /*
+
     public User findByEmail(String email) {
         return ur.findByEmail(email);
     }
-    
+        /*
     public UserDTO save(UserDTO userDTO) throws ControllerUserException {
 		try {
 			return mpu.toDTO(ur.save(mpu.toEntity(userDTO)));
@@ -113,6 +111,6 @@ public class UserService {
     */
 
 	public void delete(UserDTO userDTO) {
-		ur.delete(mpu.toEntity(userDTO));
+		ur.delete(mus.toEntity(userDTO));
 	}
 }

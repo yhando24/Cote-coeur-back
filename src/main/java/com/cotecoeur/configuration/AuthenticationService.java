@@ -1,6 +1,7 @@
 package com.cotecoeur.configuration;
 
 
+
 import com.cotecoeur.user.model.User;
 import com.cotecoeur.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +24,20 @@ public class AuthenticationService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) {
 		String userLogin = email.toLowerCase();
-		User user = userRepository.findByEmail(email);
+		User u = userRepository.findByEmail(email);
 
-		if (user == null) {
+		if (u == null) {
 			throw new UsernameNotFoundException("User " + userLogin + " not found");
 
 		} else {
-			return new org.springframework.security.core.userdetails.User(userLogin, user.getPassword(), true, true,
-					true, true, findAuthorityForUser(user));
+			return new org.springframework.security.core.userdetails.User(userLogin, u.getPassword(), true, true,
+					true, true, findAuthorityForUser(u));
 		}
 	}
 
-	private List<GrantedAuthority> findAuthorityForUser(User user) {
+	private List<GrantedAuthority> findAuthorityForUser(User u) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
+		authorities.add(new SimpleGrantedAuthority(u.getRole().toString()));
 		return authorities;
 	}
 
